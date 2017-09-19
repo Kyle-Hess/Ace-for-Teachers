@@ -8,6 +8,7 @@
     <script src="../../../google-blockly/blocks_compressed.js"></script>
     <script src="../../../google-blockly/msg/js/en.js"></script>
     <script src="../../../google-blockly/javascript_compressed.js"></script>
+    <script src="../../../google-blockly/demos/interpreter/acorn_interpreter.js"></script>
     <xml id="toolbox" style="display: none">
     <category id="catLogic" colour="210" name="Logic">
       <block type="controls_if"></block>
@@ -354,13 +355,55 @@ Step 1: First click on the Data tab in scratch and then click “make a variable
             </p>
             </div>
         </div>    
+        <div id="playButton">
         <button class="code-button run">RUN</button>
+        </div>
         <button class="code-button stop">STOP</button>
     </div>
     <script>
-      var workspacePlayground = Blockly.inject('blocklyDiv',
-          {toolbox: document.getElementById('toolbox'), trashcan: true});
-        var code = Blockly.JavaScript.workspaceToCode(workspace);
+      var workspace = Blockly.inject('blocklyDiv', 
+        {toolbox: document.getElementById('toolbox'), trashcan: true});
+        //var code = Blockly.JavaScript.workspaceToCode(workspace);        
+
+  function myUpdateFunction(event) {
+    var languageDropdown = document.getElementById('languageDropdown');
+    var languageSelection = languageDropdown.options[languageDropdown.selectedIndex].value;
+    var codeDiv = document.getElementById('codeDiv');
+    var codeHolder = document.createElement('pre');
+    codeHolder.className = 'prettyprint but-not-that-pretty';
+    var code = document.createTextNode(Blockly[languageSelection].workspaceToCode(workspace));
+    codeHolder.appendChild(code);
+    codeDiv.replaceChild(codeHolder, codeDiv.lastElementChild);
+    prettyPrint();
+  }
+  workspace.addChangeListener(myUpdateFunction);
+  function executeBlockCode() {
+    var code = Blockly.JavaScript.workspaceToCode(workspace);
+    var initFunc = function(interpreter, scope) {
+      var alertWrapper = function(text) {
+        text = text ? text.toString() : '';
+        return interpreter.createPrimitive(alert(text));
+      };
+      interpreter.setProperty(scope, 'alert',
+          interpreter.createNativeFunction(alertWrapper));
+      var promptWrapper = function(text) {
+        text = text ? text.toString() : '';
+        return interpreter.createPrimitive(prompt(text));
+      };
+      interpreter.setProperty(scope, 'prompt',
+          interpreter.createNativeFunction(promptWrapper));
+    };
+    var myInterpreter = new Interpreter(code, initFunc);
+    var stepsAllowed = 10000;
+    while (myInterpreter.step() && stepsAllowed) {
+      stepsAllowed--;
+    }
+    if (!stepsAllowed) {
+      throw EvalError('Infinite loop.');
+    }
+  }
+  
+  document.getElementById('playButton').addEventListener('click', executeBlockCode);
     </script>
 </body>
 </html>
