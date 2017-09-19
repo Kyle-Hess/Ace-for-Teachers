@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ace for teachers - Practise</title>
+	<link href="../../../css/main.css" rel="stylesheet" type="text/css">
+    <script src="../../../google-blockly/blockly_compressed.js"></script>
+    <script src="../../../google-blockly/blocks_compressed.js"></script>
+    <script src="../../../google-blockly/msg/js/en.js"></script>
+    <xml id="toolbox" style="display: none">
+      <block type="controls_if"></block>
+      <block type="controls_repeat_ext"></block>
+      <block type="logic_compare"></block>
+      <block type="math_number"></block>
+      <block type="math_arithmetic"></block>
+      <block type="text"></block>
+      <block type="text_print"></block>
+    </xml>
+</head>
+<body>
+    <div id="header-container">
+        <div id="header">
+            <div id="navigation">
+                <h1 class="logo">ACE For Teachers</h1>
+                <ul>
+                  <li><a href="../../index.html">Home</a></li>
+                  <li><a href="../../lessons.html">Lessons</a></li>
+                  <li><a href="../../practice.html">Practice</a></li>
+                  <li><a href="../../videos.html">Videos</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="content-blockly">
+        <h1>Booleans</h1>
+        <div class="box-container">
+            <div class="coding-environment">
+                <div id="blocklyDiv" style="height: 100%; width: 100%;"></div>
+            </div>
+            <div class="tutorial-section">
+                    <p>
+The Boolean expression has two data types are true or false
+<br>example in java: bool = true
+<br>System.out.println(bool) 
+<br>Step 1: grab the print block and place inside of the work area
+<br>Step 2: grab the true or false block and place it beside the print block
+<br>Step 3: change the true or false block to true
+                </p>
+                <h3>for scratch</h3> 
+                <p>
+<br>Step 1: First click on the Data tab in scratch and then click “make a variable”
+<br>Step 2: Give your Variable a meaningful name like myBoolean and click ok. Make sure you have “for all sprites” clicked 
+<br>Step 3: Drag and drop the “set Variable to” block onto the editor  
+<br>Step 4: Then click on the Events tab and drag and drop the “when clicked” block with the green flag onto the editor  
+<br>Step 5: Place the  “set Variable to” block under the “when clicked” so that they lock together
+<br>Step 6: In the  “set Variable to” block where there is a number 0 click in that space and type either True or False
+<br>Step 7: Click on the Looks tab and drag and drop the “say” block under the “set Variable to” block 
+<br>Step 8: Navigate back to the data tab and click on the circle with the name myBoolean and drag and drop it inside the Say block
+<br>Step 9: click the Green flag at the top of the editor
+                </p>
+            </div>
+        </div>    
+        <button class="code-button run">RUN</button>
+        <button class="code-button stop">STOP</button>
+    </div>
+    <script>
+      var workspacePlayground = Blockly.inject('blocklyDiv',
+          {toolbox: document.getElementById('toolbox')});
+    </script>
+</body>
+</html>

@@ -87,6 +87,12 @@ li a:hover {
     margin-top: 50px;
     margin-bottom: 20px;
 }
+#content-blockly {
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
 h1 {
     color: #444;
     font-family: "Roboto-Black";
@@ -129,8 +135,13 @@ h4 {
     background-color: red;
 }
 .coding-environment {
-    width: 100%;
+    width: 50%;
+    float: right;
     height: 500px;
+}
+.tutorial-section {
+    width: 48%;
+    float: left;
 }
 .box-container {
     display: block;
@@ -138,6 +149,7 @@ h4 {
     margin-bottom: 20px;
     padding: 20px;
     background-color: white;
+    overflow: auto;
 }
 a.box-container {
     width: 70%;
