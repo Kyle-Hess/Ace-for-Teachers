@@ -2,17 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ace for teachers - Practice</title>
+    <title>Ace for teachers - Practise</title>
 	<link href="../css/main.css" rel="stylesheet" type="text/css">
+    <script src="../google-blockly/blockly_compressed.js"></script>
+    <script src="../google-blockly/blocks_compressed.js"></script>
+    <script src="../google-blockly/msg/js/en.js"></script>
+    <xml id="toolbox" style="display: none">
+      <block type="controls_if"></block>
+      <block type="controls_repeat_ext"></block>
+      <block type="logic_compare"></block>
+      <block type="math_number"></block>
+      <block type="math_arithmetic"></block>
+      <block type="text"></block>
+      <block type="text_print"></block>
+    </xml>
 </head>
-<ul>
-  <li><a href="index.html">Home</a></li>
-  <li><a href="lessons1.html">Lessons1</a></li>
-  <li><a href="lessons2.html">Lessons2</a></li>
-  <li><a href="practice.html">Practice</a></li>
-  <li><a href="videos.html">Videos</a></li>
-</ul>
 <body>
-
+    <div id="header-container">
+        <div id="header">
+            <div id="navigation">
+                <h1 class="logo">ACE For Teachers</h1>
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="lessons.html">Lessons</a></li>
+                  <li><a href="practice.html">Practice</a></li>
+                  <li><a href="videos.html">Videos</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="content">
+        <h1>Practise</h1>
+        <div class="box-container">
+            <div class="coding-environment">
+                <div id="blocklyDiv" style="height: 100%; width: 100%;"></div>
+            </div>
+        </div>    
+        <button class="code-button run">RUN</button>
+        <button class="code-button stop">STOP</button>
+    </div>
+    <script>
+      var workspacePlayground = Blockly.inject('blocklyDiv',
+          {toolbox: document.getElementById('toolbox')});
+    </script>
 </body>
 </html>
