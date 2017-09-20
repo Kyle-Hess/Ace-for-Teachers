@@ -328,49 +328,40 @@
         </div>
     </div>
     <div id="content-blockly">
-        <h1>Strings</h1>
+        <h1>Understanding Variables</h1>
         <div class="box-container">
             <div class="coding-environment">
                 <div id="blocklyDiv" style="height: 100%; width: 100%;"></div>
             </div>
             <div class="tutorial-section">
-            <h3>Understanding Strings</h3>
-            <p>
-            A string variable is variable that is used to store information that consists of letters numbers or symbols. Strings can contain both letters and numbers in a single variable. String data could also be thought of as a set or sequence of individual characters being stored together just consists of whole numbers. 
-            </p>
-            <h3>For Blockly</h3>
-            <p>
-            Strings can hold sentences, names, characters, letters, numbers and special characters.
-            <br>For example, in Java a name variable: String name = “John”;
-            <br>Step 1 go into the text category and grab the print block and place inside of work area
-            <br>Step 2 into the text category and place the “” block beside the print block
-            <br>step 3 Type John inside the “” block
-            </p>
-            <h3>For Scratch</h3>
-            <p>
-            Step 1: First click on the Data tab in scratch and then click “make a variable”
-            <br>Step 2: Give your Variable a meaningful name like myName and click ok. Make sure you have “for all sprites” clicked 
-            <br>Step 3: Drag and drop the “set Variable to” block onto the editor  
-            <br>Step 4: Then click on the Events tab and drag and drop the “when clicked” block with the green flag onto the editor  
-            <br>Step 5: Place the  “set Variable to” block under the “when clicked” so that they lock together
-            <br>Step 6: In the  “set Variable to” block where there is a number 0 click in that space and type a name you wish to display like John
-            <br>Step 7: Click on the Looks tab and drag and drop the “say” block under the “set Variable to” block 
-            <br>Step 8: Navigate back to the data tab and click on the circle with the name myName and drag and drop it inside the Say block
-            <br>Step 9: click the Green flag at the top of the editor
-            </p>
+                <h3>What Are Variables?</h3>
+                <p>
+                Within programming a variable can be considered like a container. We can use a container to store items and keep them for later. Just like containers we use our variables in programming to store pieces of information whether it would be some words, numbers or a combination of both. It must be understood however, that there are different variables for storing different types of information and not all variables are the same. Some of these different types of variables are Strings, Integers, Floats and booleans. Feel free to play around in the editior at any time to explore these. 
+                </p>
+                
+                <h3>Helpfull Advice</h3>
+                <p>
+                When working with variables it is good practice to follow these rules: 
+                    
+                <br>When building variables it is important to give your variables names that have meaning. This is so when we use our variables we can remember what information they hold just by reading their names. 
+                    
+                <br>Good variable names: never start with a number, never have any spaces, are not a single character besides i or j, contain a capital letter where the is a space, contain a name of something that is already in use by the program that is not a variable. 
+
+                <br>In conventional programming we MUST specify a variable's type (string, integer, float ect) so our programming language knows how the variable will behave. In blockly and scratch we do not need to do this. With Scratch and blockly we simply make a variable and we can place whatever data we like within that variable however, it is still VERY important to understand the different types of variables and what they are for as they each have their own roles in programming. 
+                </p>
             </div>
         </div>    
         <div id="playButton">
             <button class="code-button run">RUN</button> 
         </div>
         <div id="nextButton">
-            <a href="../../lessons/lesson1/lessons1 - integer.html" class="next-button">NEXT</a>
+            <a href="../../lessons/lesson1/lessons1%20-%20string.html" class="next-button">NEXT</a>
         </div>
     </div>
     <script>
       var workspace = Blockly.inject('blocklyDiv', 
         {toolbox: document.getElementById('toolbox'), trashcan: true});
-        var code = Blockly.JavaScript.workspaceToCode(workspace);        
+        //var code = Blockly.JavaScript.workspaceToCode(workspace);        
 
   function myUpdateFunction(event) {
     var languageDropdown = document.getElementById('languageDropdown');
