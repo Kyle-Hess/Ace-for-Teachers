@@ -7,6 +7,8 @@
     <script src="../../../google-blockly/blockly_compressed.js"></script>
     <script src="../../../google-blockly/blocks_compressed.js"></script>
     <script src="../../../google-blockly/msg/js/en.js"></script>
+    <script src="../../../google-blockly/javascript_compressed.js"></script>
+    <script src="../../../google-blockly/demos/interpreter/acorn_interpreter.js"></script>
     <xml id="toolbox" style="display: none">
     <category id="catLogic" colour="210" name="Logic">
       <block type="controls_if"></block>
@@ -336,9 +338,10 @@
 Integers store whole numbers, they can be positive, negative or zero.
 <br>Examples of integers: -5, 8, 0, 2560
 <br>Example in java: int value = “5”;
-<br>Step 1: grab the print block and place inside of the work area
-<br>Step 2: then grab the ‘a number block’ and place it beside the print block
+<br>Step 1: go into the text category and grab the print block and place inside of the work area
+<br>Step 2: go to the math category and then grab the ‘a number block’ and place it beside the print block
 <br>step 3: then type 5 inside of the a number block
+
                 </p>
                 <h3>for scratch</h3> 
                 <p>
@@ -356,12 +359,54 @@ Step 1: First click on the Data tab in scratch and then click “make a variable
                 </p>
             </div>
         </div>    
+        <div id="playButton">
         <button class="code-button run">RUN</button>
-        <button class="code-button stop">STOP</button>
+        </div>
     </div>
     <script>
-      var workspacePlayground = Blockly.inject('blocklyDiv',
-          {toolbox: document.getElementById('toolbox'), trashcan: true});
+      var workspace = Blockly.inject('blocklyDiv', 
+        {toolbox: document.getElementById('toolbox'), trashcan: true});
+        //var code = Blockly.JavaScript.workspaceToCode(workspace);        
+
+  function myUpdateFunction(event) {
+    var languageDropdown = document.getElementById('languageDropdown');
+    var languageSelection = languageDropdown.options[languageDropdown.selectedIndex].value;
+    var codeDiv = document.getElementById('codeDiv');
+    var codeHolder = document.createElement('pre');
+    codeHolder.className = 'prettyprint but-not-that-pretty';
+    var code = document.createTextNode(Blockly[languageSelection].workspaceToCode(workspace));
+    codeHolder.appendChild(code);
+    codeDiv.replaceChild(codeHolder, codeDiv.lastElementChild);
+    prettyPrint();
+  }
+  workspace.addChangeListener(myUpdateFunction);
+  function executeBlockCode() {
+    var code = Blockly.JavaScript.workspaceToCode(workspace);
+    var initFunc = function(interpreter, scope) {
+      var alertWrapper = function(text) {
+        text = text ? text.toString() : '';
+        return interpreter.createPrimitive(alert(text));
+      };
+      interpreter.setProperty(scope, 'alert',
+          interpreter.createNativeFunction(alertWrapper));
+      var promptWrapper = function(text) {
+        text = text ? text.toString() : '';
+        return interpreter.createPrimitive(prompt(text));
+      };
+      interpreter.setProperty(scope, 'prompt',
+          interpreter.createNativeFunction(promptWrapper));
+    };
+    var myInterpreter = new Interpreter(code, initFunc);
+    var stepsAllowed = 10000;
+    while (myInterpreter.step() && stepsAllowed) {
+      stepsAllowed--;
+    }
+    if (!stepsAllowed) {
+      throw EvalError('Infinite loop.');
+    }
+  }
+  
+  document.getElementById('playButton').addEventListener('click', executeBlockCode);
     </script>
 </body>
 </html>

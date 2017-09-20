@@ -335,11 +335,12 @@
             </div>
             <div class="tutorial-section">
                     <p>
-Strings can hold sentences, names, characters, letters, numbers and special characters.
+            Strings can hold sentences, names, characters, letters, numbers and special characters.
             <br>For example, in Java a name variable: String name = “John”;
-<br>Step 1 grab the print block and place inside of work area
-<br>Step 2 place the “” block beside the print block
-<br>step 3 Type John inside the “” block
+            <br>Step 1 go into the text category and grab the print block and place inside of work area
+            <br>Step 2 into the text category and place the “” block beside the print block
+            <br>step 3 Type John inside the “” block
+
             </p>
             <h3>for scratch</h3>
             <p>
@@ -358,12 +359,11 @@ Step 1: First click on the Data tab in scratch and then click “make a variable
         <div id="playButton">
         <button class="code-button run">RUN</button>
         </div>
-        <button class="code-button stop">STOP</button>
     </div>
     <script>
       var workspace = Blockly.inject('blocklyDiv', 
         {toolbox: document.getElementById('toolbox'), trashcan: true});
-        //var code = Blockly.JavaScript.workspaceToCode(workspace);        
+        var code = Blockly.JavaScript.workspaceToCode(workspace);        
 
   function myUpdateFunction(event) {
     var languageDropdown = document.getElementById('languageDropdown');
