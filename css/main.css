@@ -231,6 +231,13 @@ form.login-form {
 .float-right {
     float: right;
 }
+.centered {
+    display: block;
+    margin: auto;
+}
+a.button {
+    text-decoration: none;
+}
 a.box-container {
     width: 70%;
     text-decoration: none;
