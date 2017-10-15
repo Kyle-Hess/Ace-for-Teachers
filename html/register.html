@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ace for Teachers - Home</title>
+	<link href="../css/main.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div id="header-container">
+        <div id="header">
+            <div id="navigation">
+                <h1 class="logo">ACE For Teachers</h1>
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="lessons.html">Lessons</a></li>
+                  <li><a href="practice.html">Practice</a></li>
+                  <li><a href="videos.html">Videos</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="content">
+        <h1>Register</h1>
+        <div class="centered-container">
+                <form id="form" class="login-form" action="/action_page.php" onsubmit="return checkInput();">
+                    <p>Email</p>
+                    <input id="email" type="text" name="email"><br>
+                    <p>Password</p>
+                    <input id="p1" type="password" name="pword"><br>
+                    <p>Confirm Password</p>
+                    <input id="p2" type="password" name="cpword"><br>
+                    <input class="button centered" type="submit" value="Register">
+                </form>
+        </div>
+    </div>
+    
+
+    <script>
+        function checkInput() {
+            var p1 = document.getElementById("p1").value;
+            var p2 = document.getElementById("p2").value;
+            var e1 = document.getElementById("email").value;
+            if (e1 == "") {
+                alert("Invalid Email")
+                return false;
+            }
+            if (p1 != "" && p2 != "") {
+                if (p1 == p2) {
+                  alert("Valid");
+                    document.getElementById("form").submit();
+                    return true;
+                } else {
+                    alert("Passwords do not match")
+                    return false;
+                }
+            } else {
+                window.alert("Invalid Password");
+                return false;
+            }
+        }
+</script>
+</body>
+</html>
