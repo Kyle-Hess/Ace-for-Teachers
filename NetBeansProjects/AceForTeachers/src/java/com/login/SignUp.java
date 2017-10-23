@@ -35,10 +35,16 @@ public class SignUp extends HttpServlet {
         }
 
         if (uName.isEmpty() || pWord.isEmpty() || pWordConfirm.isEmpty()) {
+            request.setAttribute("message", "Your must fill in all required details");
+            request.getRequestDispatcher("register.jsp").forward(request, response);
             response.sendRedirect("register.jsp");
         } else if (!pWordConfirm.equals(pWord)) {
+            request.setAttribute("message", "Your Passwords Must Match");
+            request.getRequestDispatcher("register.jsp").forward(request, response);
             response.sendRedirect("register.jsp");
         } else if (uName.equals(checkUserName(uName))) {
+            request.setAttribute("message", "That username is already in use");
+            request.getRequestDispatcher("register.jsp").forward(request, response);
             response.sendRedirect("register.jsp");
         } else {
             saveUserName(uName, pWordConfirm);

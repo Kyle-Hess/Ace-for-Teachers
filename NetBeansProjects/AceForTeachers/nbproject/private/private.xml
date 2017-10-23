@@ -3,16 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Adrian/Documents/NetBeansProjects/AceForTeachers/web/html/practice.jsp</file>
-            <file>file:/C:/Users/Adrian/Documents/NetBeansProjects/AceForTeachers/web/html/lessons/lesson1/lessons1%20-%20float.jsp</file>
-            <file>file:/C:/Users/Adrian/Documents/NetBeansProjects/AceForTeachers/web/html/lessons/lessons1.jsp</file>
-            <file>file:/C:/Users/Adrian/Documents/NetBeansProjects/AceForTeachers/web/html/lessons.jsp</file>
-            <file>file:/C:/Users/Adrian/Documents/NetBeansProjects/AceForTeachers/web/html/lessons/lesson1/lessons1%20-%20intro.jsp</file>
-            <file>file:/C:/Users/Adrian/Documents/NetBeansProjects/AceForTeachers/web/html/lessons/lesson1/lessons1%20-%20integer.jsp</file>
-            <file>file:/C:/Users/Adrian/Documents/NetBeansProjects/AceForTeachers/web/html/lessons/lesson1/lessons1%20-%20string.jsp</file>
-            <file>file:/C:/Users/Adrian/Documents/NetBeansProjects/AceForTeachers/web/html/index.jsp</file>
-            <file>file:/C:/Users/Adrian/Documents/NetBeansProjects/AceForTeachers/web/html/lessons/lesson1/lessons1%20-%20boolean.jsp</file>
-            <file>file:/C:/Users/Adrian/Documents/NetBeansProjects/AceForTeachers/web/html/lessons/lesson1/lessons1%20-%20creation.jsp</file>
+            <file>file:/C:/Users/Adrian/Documents/NetBeansProjects/AceForTeachers/src/java/com/login/SignUp.java</file>
+            <file>file:/C:/Users/Adrian/Documents/NetBeansProjects/AceForTeachers/src/java/com/login/Login.java</file>
+            <file>file:/C:/Users/Adrian/Documents/NetBeansProjects/AceForTeachers/web/html/register.jsp</file>
+            <file>file:/C:/Users/Adrian/Documents/NetBeansProjects/AceForTeachers/web/html/login-page.jsp</file>
         </group>
     </open-files>
 </project-private>

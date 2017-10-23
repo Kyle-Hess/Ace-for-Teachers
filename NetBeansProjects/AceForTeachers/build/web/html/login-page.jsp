@@ -25,6 +25,8 @@
                     <p>Password</p>
                     <input type="password" name="passWord"><br>
 
+                    <p>${message}</p>
+
                     <input class="button float-left" type="submit" value="Login">
 
                     <a href="register.jsp" class="button float-right">Sign-Up</a>

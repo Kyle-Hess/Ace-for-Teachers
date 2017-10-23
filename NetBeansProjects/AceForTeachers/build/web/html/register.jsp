@@ -29,6 +29,8 @@
                     <p>Confirm Password</p>
                     <input id="passWordConfirm" type="password" name="pWordConfirm"><br>
 
+                    <p>${message}</p>
+
                     <input class="button centered" type="submit" value="SignUp">
                 </form>
             </div>

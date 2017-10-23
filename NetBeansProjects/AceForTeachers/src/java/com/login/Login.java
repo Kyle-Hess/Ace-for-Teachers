@@ -31,14 +31,14 @@ public class Login extends HttpServlet {
         aceLoginDB = new AceLoginDB();
 
         if (validateUser(uName, pWord)) {
-            System.out.println("name & pass were good");
 
             HttpSession session = request.getSession();
             session.setAttribute("userName", uName);
 
             response.sendRedirect("index.jsp");
         } else {
-            System.out.println("name & pass were bad");
+            request.setAttribute("message", "Your Username or Password was incorrect");
+            request.getRequestDispatcher("login-page.jsp").forward(request, response);
             response.sendRedirect("login-page.jsp");
         }
 
